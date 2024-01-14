@@ -6,6 +6,7 @@ import {
   CHANGE_LAYOUT_WIDTH,
   CHANGE_LAYOUT_POSITION_TYPE,
   CHANGE_LAYOUT_LEFT_SIDEBAR_SIZE_TYPE,
+  CHANGE_SIDEBAR_VISIBILITY_TYPE,
 } from '@veo/constants/ActionTypes';
 import { changeHTMLAttribute } from '@veo/helpers/Utils';
 
@@ -136,6 +137,21 @@ export const changeLeftSidebarSizeType =
       // console.log(error);
     }
   };
+/**
+ * Changes the sidebar visibility
+ * @param {*} param0
+ */
+export const changeSidebarVisibility =
+  (sidebarVisibilitytype) => async (dispatch) => {
+    try {
+      changeHTMLAttribute('data-sidebar-visibility', sidebarVisibilitytype);
+      dispatch({
+        type: CHANGE_SIDEBAR_VISIBILITY_TYPE,
+        payload: sidebarVisibilitytype,
+      });
+    } catch (error) {}
+  };
+
 // export const changeLayoutModeAction = (layoutMode) => {
 //   return {
 //     type: CHANGE_LAYOUT_MODE_ACTION,

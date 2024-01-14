@@ -6,6 +6,7 @@ import {
   CHANGE_LAYOUT_WIDTH,
   CHANGE_LAYOUT_POSITION_TYPE,
   CHANGE_LAYOUT_LEFT_SIDEBAR_SIZE_TYPE,
+  CHANGE_SIDEBAR_VISIBILITY_TYPE,
 } from '@veo/constants/ActionTypes';
 import { createReducer } from '@reduxjs/toolkit';
 import {
@@ -25,7 +26,7 @@ const initialSettings = {
   initialPath: '/',
   layoutType: layoutTypes.VERTICAL,
   leftSidebarType: leftSidebarTypes.DARK,
-  layoutModeType: layoutModeTypes.DARKMODE,
+  layoutModeType: layoutModeTypes.LIGHTMODE,
   layoutWidthType: layoutWidthTypes.FLUID,
   layoutPositionType: layoutPositionTypes.FIXED,
   topbarThemeType: topbarThemeTypes.LIGHT,
@@ -33,7 +34,7 @@ const initialSettings = {
   leftSidebarViewType: leftSidebarViewTypes.DEFAULT,
   leftSidebarImageType: leftSidebarImageTypes.NONE,
   preloader: preloaderTypes.DISABLE,
-  sidebarVisibilitytype: sidebarVisibilitytypes.SHOW,
+  sidebarVisibilityType: sidebarVisibilitytypes.SHOW,
 };
 
 const settingsReducer = createReducer(initialSettings, (builder) => {
@@ -59,6 +60,9 @@ const settingsReducer = createReducer(initialSettings, (builder) => {
     })
     .addCase(CHANGE_LAYOUT_LEFT_SIDEBAR_SIZE_TYPE, (state, action) => {
       state.leftSidebarSizeType = action.payload;
+    })
+    .addCase(CHANGE_SIDEBAR_VISIBILITY_TYPE, (state, action) => {
+      state.sidebarVisibilitytype = action.payload;
     });
 });
 

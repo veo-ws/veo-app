@@ -18,6 +18,9 @@ export const CHANGE_LAYOUT_WIDTH = 'change_layout_width';
 export const CHANGE_LAYOUT_POSITION_TYPE = 'change_layout_postion_type';
 export const CHANGE_LAYOUT_LEFT_SIDEBAR_SIZE_TYPE =
   'change_layout_sidebar_size_type';
+
+export const CHANGE_SIDEBAR_VISIBILITY_TYPE = 'change_sidebar_visibility_type';
+
 //AUTH0
 export const UPDATE_AUTH_USER = 'update_auth_user';
 export const SET_AUTH_TOKEN = 'set_auth_token';
