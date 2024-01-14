@@ -8,7 +8,7 @@ import {
   ThemeStyle,
   ThemeStyleRadius,
 } from './AppEnums';
-
+import favicon from './../../assets/images/favicon.ico';
 export const textLight = {
   primary: 'rgb(17, 24, 39)',
   secondary: 'rgb(107, 114, 128)',
@@ -229,5 +229,12 @@ const defaultConfig = {
     icon: 'us',
   },
   rtlLocale: ['ar'],
+  siteName: process.env.REACT_APP_SITE_NAME,
+  description: process.env.REACT_APP_SITE_DESCRIPTION,
+  favicon: favicon,
+  ogTitle: process.env.REACT_APP_SITE_OG_TITLE,
+  siteIcon: 'ion-flash',
+  footerText: 'Veo ©2021 Created by Veo',
+  // siteLogoImage: require('assets/images/logo.png').default,
 };
 export default defaultConfig;

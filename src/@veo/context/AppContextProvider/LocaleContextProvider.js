@@ -1,11 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import defaultConfig from '@veo/constants/defaultConfig';
 import PropTypes from 'prop-types';
-import {
-  useThemeActionsContext,
-  useThemeContext,
-} from './ThemeContextProvider';
-import { LayoutDirection } from '@veo/constants/AppEnums';
+
+// import { LayoutDirection } from '@veo/constants/AppEnums';
 
 const LocaleContext = createContext();
 const LocaleActionsContext = createContext();
@@ -16,32 +13,28 @@ export const useLocaleActionsContext = () => useContext(LocaleActionsContext);
 
 const LocaleContextProvider = ({ children }) => {
   const [locale, updateLocale] = useState(defaultConfig.locale);
-  const { theme } = useThemeContext();
-  const { updateTheme } = useThemeActionsContext();
+  // const { theme } = useThemeContext();
+  // const { updateTheme } = useThemeActionsContext();
 
-  const updateLangDir = () => {
-    if (
-      defaultConfig.rtlLocale.includes(locale.locale) &&
-      theme.direction === LayoutDirection.LTR
-    ) {
-      updateTheme({
-        ...theme,
-        direction: LayoutDirection.RTL,
-      });
-    } else if (
-      !defaultConfig.rtlLocale.includes(locale.locale) &&
-      theme.direction === LayoutDirection.RTL
-    ) {
-      updateTheme({
-        ...theme,
-        direction: LayoutDirection.LTR,
-      });
-    }
-  };
-
-  useEffect(() => {
-    updateLangDir();
-  }, [locale]);
+  // useEffect(() => {
+  //   if (
+  //     defaultConfig.rtlLocale.includes(locale.locale) &&
+  //     // theme.direction === LayoutDirection.LTR
+  //   ) {
+  //     updateTheme({
+  //       ...theme,
+  //       direction: LayoutDirection.RTL,
+  //     });
+  //   } else if (
+  //     !defaultConfig.rtlLocale.includes(locale.locale) &&
+  //     theme.direction === LayoutDirection.RTL
+  //   ) {
+  //     updateTheme({
+  //       ...theme,
+  //       direction: LayoutDirection.LTR,
+  //     });
+  //   }
+  // }, [locale, theme, updateTheme]);
 
   return (
     <LocaleContext.Provider

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const jwtAxios = axios?.create({
-  baseURL: 'https://cremaapi.pythonanywhere.com/api/', //YOUR_API_URL HERE
+  baseURL: 'https://api.veo.com/v1/', //YOUR_API_URL HERE
   headers: {
     'Content-Type': 'application/json',
   },

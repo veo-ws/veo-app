@@ -5,7 +5,7 @@ const AppLoader = () => {
   return (
     <div className='app-loader'>
       <div className='loader-spin'>
-        <span className='crema-dot crema-dot-spin'>
+        <span className='veo-dot veo-dot-spin'>
           <i></i>
           <i></i>
           <i></i>

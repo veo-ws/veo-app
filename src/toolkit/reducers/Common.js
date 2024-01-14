@@ -43,7 +43,7 @@ const commonReducer = createReducer(INIT_STATE, (builder) => {
     })
     .addCase(FETCH_ERROR, (state, action) => {
       state.error = action.payload;
-      state.message = '';
+      state.message = action.payload;
       state.loading = false;
       state.updatingContent = false;
     })

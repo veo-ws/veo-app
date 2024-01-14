@@ -20,9 +20,14 @@ export const updatingContent = () => {
 };
 
 export const fetchError = (error) => {
-  return (dispatch) => dispatch({ type: FETCH_ERROR, payload: error });
+  // Hata mesajını konsola yazdır
+  console.log('Fetching Error:', error);
+  return (dispatch) => {
+    console.log('dispatch fetchError action');
+    dispatch({ type: FETCH_ERROR, payload: error });
+    // Dispatch fonksiyonu çağrıldıktan sonra konsola bilgi yazdır
+  };
 };
-
 export const showMessage = (message) => {
   return (dispatch) => dispatch({ type: SHOW_MESSAGE, payload: message });
 };

@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.crema-dot {
+.veo-dot {
   position: relative;
   display: inline-block;
   font-size: 20px;
@@ -24,12 +24,12 @@
   height: 30px;
 }
 
-.crema-dot-spin {
+.veo-dot-spin {
   transform: rotate(45deg);
   animation: hipsterRotate 1.2s infinite linear;
 }
 
-.crema-dot i {
+.veo-dot i {
   width: 9px;
   height: 9px;
   border-radius: 100%;
@@ -42,34 +42,34 @@
   transform-origin: 50% 50%;
 }
 
-.crema-dot i:nth-child(1) {
+.veo-dot i:nth-child(1) {
   left: 10px;
   background-color: #1890ff;
   top: 0;
 }
 
-.crema-dot i:nth-child(2) {
+.veo-dot i:nth-child(2) {
   right: 0;
   top: 8px;
   background-color: #1890ff;
   animation-delay: 0.4s;
 }
 
-.crema-dot i:nth-child(3) {
+.veo-dot i:nth-child(3) {
   right: 4px;
   bottom: 0;
   background-color: #1890ff;
   animation-delay: 0.8s;
 }
 
-.crema-dot i:nth-child(4) {
+.veo-dot i:nth-child(4) {
   left: 4px;
   bottom: 0;
   background-color: #1890ff;
   animation-delay: 1.2s;
 }
 
-.crema-dot i:nth-child(5) {
+.veo-dot i:nth-child(5) {
   left: 0;
   top: 8px;
   background-color: #1890ff;
