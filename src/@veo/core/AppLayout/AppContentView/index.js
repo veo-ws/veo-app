@@ -1,5 +1,5 @@
 import React from 'react';
-import AppFooter from '../AppFooter';
+// import AppFooter from '../AppFooter';
 import AppErrorBoundary from '../AppErrorBoundary';
 import PropTypes from 'prop-types';
 import AppContentViewWrapper from './AppContentViewWrapper';
@@ -12,7 +12,7 @@ const AppContentView = ({ routes, ...rest }) => {
       <AppSuspense>
         <AppErrorBoundary>{routes}</AppErrorBoundary>
       </AppSuspense>
-      <AppFooter />
+      {/* <AppFooter /> */}
     </AppContentViewWrapper>
   );
 };

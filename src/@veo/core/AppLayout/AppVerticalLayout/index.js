@@ -10,12 +10,11 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-const VerticalLayout = (props) => {
+const VerticalLayout = () => {
   const navData = navdata().props.children;
   let location = useLocation();
 
   const path = location.pathname;
-  console.log('path', path);
 
   /*
  layout settings
@@ -60,12 +59,12 @@ const VerticalLayout = (props) => {
         // } else {
         //     document.querySelector(".hamburger-icon").classList.add("open");
         // }
-        var hamburgerIcon = document.querySelector('.hamburger-icon');
+        let hamburgerIcon = document.querySelector('.hamburger-icon');
         if (hamburgerIcon !== null) {
           hamburgerIcon.classList.remove('open');
         }
       } else {
-        var hamburgerIcon = document.querySelector('.hamburger-icon');
+        let hamburgerIcon = document.querySelector('.hamburger-icon');
         if (hamburgerIcon !== null) {
           hamburgerIcon.classList.add('open');
         }
@@ -100,10 +99,10 @@ const VerticalLayout = (props) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log('initMenu');
+
     const initMenu = () => {
       const pathName = process.env.PUBLIC_URL + path;
-      console.log('pathName', pathName);
+
       const ul = document.getElementById('navbar-nav');
       const items = ul.getElementsByTagName('a');
       let itemsArray = [...items]; // converts NodeList to Array
@@ -118,7 +117,7 @@ const VerticalLayout = (props) => {
     // if (props.layoutType === 'vertical') {
     initMenu();
     // }
-  }, [path, props.layoutType]);
+  }, [path, layoutType]);
 
   function activateParentDropdown(item) {
     item.classList.add('active');

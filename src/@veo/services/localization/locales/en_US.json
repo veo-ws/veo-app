@@ -303,6 +303,7 @@
   "common.fullName": "Full Name",
   "common.userName": "User Name",
   "common.doneHaveAccount":"Don't have account? ",
+  "common.sorryPageNotFound":" Sorry, Page not Found 😭",
   "common.profileConnections": "Profile Connections",
   "sidebar.pages.errorPages.401": "401",
   "sidebar.pages.errorPages.403": "403",

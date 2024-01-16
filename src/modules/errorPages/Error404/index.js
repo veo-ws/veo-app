@@ -10,86 +10,50 @@ import React from 'react';
 // import { ReactComponent as Logo } from '../../../assets/icon/404.svg';
 // import { useTheme } from '@mui/material';
 import AppAnimate from '@veo/components/AppAnimate';
+import IntlMessages from '@veo/helpers/IntlMessages';
+
+import { initialUrl } from '@veo/constants/AppConst';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'reactstrap';
+
+// Import Images
+import error400cover from '../../../assets/images/error400-cover.png';
 
 const Error404 = () => {
-  // const theme = useTheme();
-  // const navigate = useNavigate();
-
-  // const onGoBackToHome = () => {
-  //   navigate(initialUrl);
-  // };
-
+  document.title =
+    '404 Error Cover | Velzon - React Admin & Dashboard Template';
   return (
     <AppAnimate animation='transition.slideUpIn' delay={200}>
-      <h1>Error404</h1>
-      {/* <Box
-        sx={{
-          py: { xl: 8 },
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            mb: { xs: 4, xl: 8 },
-            width: '100%',
-            maxWidth: { xs: 200, sm: 300, xl: 706 },
-            '& svg': {
-              width: '100%',
-              maxWidth: 400,
-            },
-          }}
-        >
-          <Logo fill={theme.palette.primary.main} />
-        </Box>
-        <Box
-          sx={{
-            mb: { xs: 4, xl: 5 },
-          }}
-        >
-          <Box
-            variant='h3'
-            sx={{
-              mb: { xs: 3, xl: 4 },
-              fontSize: { xs: 20, md: 24 },
-              fontWeight: Fonts.MEDIUM,
-            }}
-          >
-            <IntlMessages id='error.404Error' />.
-          </Box>
-          <Box
-            sx={{
-              mb: { xs: 4, xl: 5 },
-              color: grey[600],
-              fontSize: 16,
-              fontWeight: Fonts.MEDIUM,
-            }}
-          >
-            <Typography>
-              <IntlMessages id='error.message1' />
-            </Typography>
-            <Typography>
-              <IntlMessages id='error.message2' />
-            </Typography>
-          </Box>
-          <Button
-            variant='contained'
-            color='primary'
-            sx={{
-              fontWeight: Fonts.MEDIUM,
-              fontSize: 16,
-              textTransform: 'capitalize',
-            }}
-            onClick={onGoBackToHome}
-          >
-            <IntlMessages id='error.goBackToHome' />
-          </Button>
-        </Box>
-      </Box> */}
+      <div className='auth-page-content'>
+        <div className='auth-page-wrapper d-flex justify-content-center align-items-center min-vh-100'>
+          <div className='auth-page-content overflow-hidden p-0'>
+            <Container>
+              <Row className='justify-content-center'>
+                <Col xl={7} lg={8}>
+                  <div className='text-center'>
+                    <img
+                      src={error400cover}
+                      alt='error img'
+                      className='img-fluid'
+                    />
+                    <div className='mt-3'>
+                      <h3 className='text-uppercase'>
+                        <IntlMessages id='common.sorryPageNotFound' />
+                      </h3>
+                      <p className='text-muted mb-4'>
+                        The page you are looking for not available!
+                      </p>
+                      <Link to={initialUrl} className='btn btn-success'>
+                        <i className='mdi mdi-home me-1'></i>Back to home
+                      </Link>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </div>
+      </div>
     </AppAnimate>
   );
 };

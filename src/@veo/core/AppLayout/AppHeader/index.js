@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useAuthMethod } from '@veo/hooks/AuthHooks';
 import logoSm from '../../../../assets/images/logo-sm.png';
 import logoDark from '../../../../assets/images/logo-dark.png';
 import logoLight from '../../../../assets/images/logo-light.png';
 import { changeSidebarVisibility } from 'toolkit/actions';
 import { useSelector, useDispatch } from 'react-redux';
+import { changeLayoutMode } from 'toolkit/actions';
+import FullScreenDropdown from './FullScreenDropdown';
+import LightDark from './LightDark';
 const AppHeader = ({ headerClass }) => {
   const { logout } = useAuthMethod();
   const dispatch = useDispatch();
-  const { sidebarVisibilityType } = useSelector(({ settings }) => settings);
+  const { sidebarVisibilityType, layoutModeType } = useSelector(
+    ({ settings }) => settings,
+  );
   const toogleMenuBtn = () => {
     var windowSize = document.documentElement.clientWidth;
 
@@ -54,6 +60,11 @@ const AppHeader = ({ headerClass }) => {
         : document.body.classList.add('twocolumn-panel');
     }
   };
+  const onChangeLayoutMode = (value) => {
+    if (changeLayoutMode) {
+      dispatch(changeLayoutMode(value));
+    }
+  };
   return (
     <React.Fragment>
       <header id='page-topbar' className={headerClass}>
@@ -94,19 +105,29 @@ const AppHeader = ({ headerClass }) => {
             </div>
 
             <div className='d-flex align-items-center'>
-              {' '}
-              <Link onClick={logout} className='dropdown-item'>
-                <i className='mdi mdi-logout text-muted fs-16 align-middle me-1'></i>{' '}
-                <span className='align-middle' data-key='t-logout'>
-                  Logout
-                </span>
-              </Link>
+              <LightDark
+                layoutMode={layoutModeType}
+                onChangeLayoutMode={onChangeLayoutMode}
+              />
+              <FullScreenDropdown />
+              <div className='ms-1 header-item d-none d-sm-flex'>
+                <button
+                  onClick={logout}
+                  className='btn btn-icon btn-topbar btn-ghost-secondary rounded-circle'
+                >
+                  <i className='mdi mdi-logout text-muted fs-16 align-middle me-1'></i>
+                  <span className='align-middle' data-key='t-logout'></span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </header>
     </React.Fragment>
   );
+};
+AppHeader.propTypes = {
+  headerClass: PropTypes.string,
 };
 
 export default AppHeader;

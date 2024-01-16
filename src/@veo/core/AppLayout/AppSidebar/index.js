@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
 //import logo
@@ -13,7 +14,7 @@ import AppVerticalLayout from '../AppVerticalLayout';
 import { Container } from 'reactstrap';
 // import HorizontalLayout from "./HorizontalLayout";
 
-const AppSidebar = ({ layoutType }) => {
+const AppSidebar = () => {
   useEffect(() => {
     var verticalOverlay = document.getElementsByClassName('vertical-overlay');
     if (verticalOverlay) {
@@ -72,33 +73,16 @@ const AppSidebar = ({ layoutType }) => {
             <i className='ri-record-circle-line'></i>
           </button>
         </div>
-        {layoutType === 'horizontal' ? (
-          <div id='scrollbar'>
-            <Container fluid>
-              <div id='two-column-menu'></div>
-              <ul className='navbar-nav' id='navbar-nav'>
-                <HorizontalLayout />
-              </ul>
-            </Container>
-          </div>
-        ) : layoutType === 'twocolumn' ? (
-          <React.Fragment>
-            <TwoColumnLayout layoutType={layoutType} />
-            <div className='sidebar-background'></div>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <SimpleBar id='scrollbar' className='h-100'>
-              <Container fluid>
-                <div id='two-column-menu'></div>
-                <ul className='navbar-nav' id='navbar-nav'>
-                  <AppVerticalLayout layoutType={layoutType} />
-                </ul>
-              </Container>
-            </SimpleBar>
-            <div className='sidebar-background'></div>
-          </React.Fragment>
-        )}
+
+        <SimpleBar id='scrollbar' className='h-100'>
+          <Container fluid>
+            <div id='two-column-menu'></div>
+            <ul className='navbar-nav' id='navbar-nav'>
+              <AppVerticalLayout />
+            </ul>
+          </Container>
+        </SimpleBar>
+        <div className='sidebar-background'></div>
       </div>
       <div className='vertical-overlay'></div>
     </React.Fragment>

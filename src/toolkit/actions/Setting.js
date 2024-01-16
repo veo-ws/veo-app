@@ -3,6 +3,7 @@ import {
   CHANGE_LAYOUT,
   TOGGLE_NAV_COLLAPSED,
   CHANGE_SIDEBAR_THEME,
+  CHANGE_LAYOUT_MODE,
   CHANGE_LAYOUT_WIDTH,
   CHANGE_LAYOUT_POSITION_TYPE,
   CHANGE_LAYOUT_LEFT_SIDEBAR_SIZE_TYPE,
@@ -70,7 +71,7 @@ export const changeSidebarTheme = (layoutMode) => async (dispatch) => {
 export const changeLayoutMode = (layoutMode) => async (dispatch) => {
   try {
     changeHTMLAttribute('data-bs-theme', layoutMode);
-    dispatch({ type: CHANGE_SIDEBAR_THEME, payload: layoutMode });
+    dispatch({ type: CHANGE_LAYOUT_MODE, payload: layoutMode });
   } catch (error) {
     // console.log(error);
   }
@@ -149,7 +150,9 @@ export const changeSidebarVisibility =
         type: CHANGE_SIDEBAR_VISIBILITY_TYPE,
         payload: sidebarVisibilitytype,
       });
-    } catch (error) {}
+    } catch (error) {
+      // console.log(error);
+    }
   };
 
 // export const changeLayoutModeAction = (layoutMode) => {

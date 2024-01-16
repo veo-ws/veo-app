@@ -16,7 +16,7 @@ import {
   publicStructure,
 } from '@veo/core/AppRoutes';
 import { useRoutes } from 'react-router-dom';
-import routesConfig from '../AppRoutes/routeConfig';
+// import routesConfig from '../AppRoutes/routeConfig';
 import { initialUrl } from '@veo/constants/AppConst';
 import AppHeader from '@veo/core/AppLayout/AppHeader';
 import AppSidebar from './AppSidebar';
@@ -106,7 +106,6 @@ const AppLayout = () => {
             className='main-content'
             layout='protected'
             routes={routes}
-            routesConfig={routesConfig}
           />
         </>
       ) : (
